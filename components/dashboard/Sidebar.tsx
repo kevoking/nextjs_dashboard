@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import UserItem from './UserItem'
 import {
@@ -11,10 +12,14 @@ import {
     CommandSeparator,
     CommandShortcut,
   } from "@/components/ui/command"
-import { User, Mail, CreditCard, Cog, Bell, Inbox } from 'lucide-react'
+import { User, Mail, CreditCard, Cog, Bell, Inbox, LogOut, HelpCircle } from 'lucide-react'
+import Link from 'next/link'
+import { Button } from '../ui/button'
+import { useRouter } from 'next/navigation'
   
 
 export default function Sidebar() {
+    const navigation = useRouter()
     const menuList = [
         {
             group: "General",
@@ -53,6 +58,23 @@ export default function Sidebar() {
         }
     ] as const
 
+    const bottomMenuList = [
+        {
+            link: "/",
+            text: "Logout",
+            icon: <LogOut />
+        },
+        {
+            link: "/",
+            text: "Help",
+            icon: <HelpCircle />
+        }
+    ]
+
+    const logout = () => {
+        navigation.push("/")
+    }
+
     return (
         <div className='fixed min-h-screen p-4 flex flex-col gap-4 w-[300px] min-w-[300px] border-r'>
             <div className=''>
@@ -78,6 +100,10 @@ export default function Sidebar() {
             </div>
             <div className=''>
                 {/*  */}
+                <Button className='w-full flex gap-2 justify-start' onClick={() => logout()} variant="outline">
+                    <LogOut className='w-6 h-6' />
+                    <span>Logout</span>
+                </Button>
             </div>
         </div>
     )
