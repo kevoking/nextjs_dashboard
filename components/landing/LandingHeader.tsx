@@ -16,7 +16,7 @@ import { Github } from 'lucide-react'
   
 export default function LandingHeader() {
   return (
-    <div className='w-full flex flex-row justify-between items-center gap-4 fixed p-2 bg-background backdrop-blur-2xl'>
+    <div className='w-full flex flex-row justify-between items-center gap-4 fixed py-2 px-4 lg:px-12 bg-background backdrop-blur-2xl'>
         <div className=''>
             <div className='text-2xl font-black text-violet-700 flex flex-row justify-start items-center gap-1 rounded-full border border-violet-700'>
                 <span className='bg-violet-700 text-neutral-50 min-w-8 h-8 flex justify-center items-center rounded-full'>N</span>

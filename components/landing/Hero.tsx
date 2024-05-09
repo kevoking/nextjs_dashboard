@@ -5,8 +5,8 @@ import Image from 'next/image'
 export default function Hero() {
   return (
     <section className='w-full p-12'>
-        <div className='w-full min-h-screen max-w-7xl mx-auto grid gap-8 mt-24'>
-            <div className='w-full max-w-5xl mx-auto flex flex-col justify-center items-center gap-4'>
+        <div className='w-full min-h-screen max-w-7xl mx-auto grid gap-12 mt-24'>
+            <div className='w-full max-w-5xl mx-auto flex flex-col justify-center items-center gap-8'>
                 <h1 className='text-3xl md:text-7xl font-bold md:font-extrabold'>
                     Next JS Dashboard
                 </h1>
