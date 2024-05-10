@@ -117,7 +117,7 @@ export default function LoginPage() {
                     </div>
                 </div>
             </div>
-            <div className="w-full h-full bg-violet-700 flex flex-col justify-center items-center gap-8">
+            <div className="hidden lg:flex w-full h-full bg-violet-700 flex-col justify-center items-center gap-8">
                 <h1 className="text-7xl font-extrabold text-violet-600">
                     LOGIN
                 </h1>

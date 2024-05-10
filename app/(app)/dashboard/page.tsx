@@ -4,7 +4,7 @@ import { DashboardTable } from "@/components/dashboard/cards/DashboardTable";
 import General from "@/components/dashboard/cards/General";
 import { Card, CardContent } from "@/components/ui/card";
 
-export default function Home() {
+export default function DefaultDashboard() {
   return (
     <div className="w-full grid gap-[32px]">
       <div className="w-full grid lg:grid-cols-2 gap-[32px]">

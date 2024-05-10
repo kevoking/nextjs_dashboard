@@ -12,7 +12,7 @@ import {
     CommandSeparator,
     CommandShortcut,
   } from "@/components/ui/command"
-import { User, Mail, CreditCard, Cog, Bell, Inbox, LogOut, HelpCircle } from 'lucide-react'
+import { User, Mail, CreditCard, Cog, Bell, Inbox, LogOut, HelpCircle, GraduationCap, LayoutDashboard, Grid2x2Check } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '../ui/button'
 import { useRouter } from 'next/navigation'
@@ -22,12 +22,32 @@ export default function Sidebar() {
     const navigation = useRouter()
     const menuList = [
         {
-            group: "General",
+            group: "Dashboards",
+            items: [
+                {
+                    link: "/dashboard",
+                    text: "Default",
+                    icon: <LayoutDashboard />
+                },
+                {
+                    link: "/quizzes-dashboard",
+                    text: "Quizzes",
+                    icon: <Grid2x2Check />
+                }
+            ]
+        },
+        {
+            group: "Pages",
             items: [
                 {
                     link: "/",
                     text: "Profile",
                     icon: <User />
+                },
+                {
+                    link: "/quizzes",
+                    text: "Quizzes",
+                    icon: <GraduationCap />
                 },
                 {
                     link: "/",
@@ -80,23 +100,24 @@ export default function Sidebar() {
             <div className=''>
                 <UserItem />
             </div>
-            <div className='grow'>
-                <Command style={{ overflow: 'visible' }}>
-                    <CommandList>
-                        <CommandEmpty>No results found.</CommandEmpty>
-                        {menuList.map((menu: any, key: number) => (
-                            <CommandGroup key={key} heading={menu.group}>
-                                {menu.items.map((item: any, itemKey: number) => (
-                                    <CommandItem key={itemKey} className='flex gap-2 cursor-pointer'>
+            <div className='grow w-full flex flex-col gap-2'>
+                {menuList.map((menu: any, key: number) => (
+                    <div key={key} className='w-full grid gap-2'>
+                        <h4 className='text-sm'>
+                            {menu.group}
+                        </h4>
+                        <div className='w-full flex flex-col justify-start items-start gap-2'>
+                            {menu.items.map((item: any, itemKey: number) => (
+                                <Button key={itemKey} variant="default" asChild className='w-full flex justify-start bg-background text-foreground hover:bg-violet-100 hover:text-violet-500'>
+                                    <Link href={item.link} className='flex gap-2'>
                                         {item.icon}
                                         {item.text}
-                                    </CommandItem>
-                                ))}
-                            </CommandGroup>
-                        ))}
-                    </CommandList>
-                </Command>
-
+                                    </Link>
+                                </Button>
+                            ))}
+                        </div>
+                    </div>
+                ))}
             </div>
             <div className=''>
                 {/*  */}
